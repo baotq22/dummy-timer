@@ -12,7 +12,7 @@ function App() {
     if (isStart && isPause === false) {
       interval = setInterval(() => {
         setTime((time) => time + 10);
-    }, 10);
+      }, 10);
     } else {
       clearInterval(interval);
     }
@@ -42,7 +42,7 @@ function App() {
         <h1 className="title">Timer App</h1>
         <Timer time={time} />
         <div className="controller">
-          <button onClick={handlePauseResume}>{isPause ? "Resume" : "Pause"}</button>
+          {!isStart ? <></> : <button onClick={handlePauseResume}>{isPause ? "Resume" : "Pause"}</button>}
           {isStart ? <button onClick={handleReset}>Reset</button> : <button onClick={handleStart}>Start</button>}
         </div>
       </div>
